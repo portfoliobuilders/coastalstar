@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Coastal Star - About Us</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        @font-face {
+          font-family: 'Lufga';
+          src: url('fonts/Lufga-Regular.ttf') format('truetype');
+          font-weight: normal;
+          font-style: normal;
+        }
+
+        body {
+          font-family: 'Lufga', 'Poppins', sans-serif;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          overflow-x: hidden;
+        }
+        *{
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+
+        .container-full {
+          width: 100%;
+          max-width: 100%;
+          margin-left: auto;
+          margin-right: auto;
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+
+        @media (min-width: 640px) {
+          .container-full {
+            padding-left: 2rem;
+            padding-right: 2rem;
+          }
+        }
+
+        .gradient-button {
+          background: linear-gradient(90deg, #3B82F6 0%, #1D4ED8 100%);
+          transition: all 0.3s ease;
+        }
+
+        .gradient-button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .blue-glow {
+          text-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+
+        .dot-grid {
+          background-image: radial-gradient(circle, #3B82F6 1px, transparent 1px);
+          background-size: 8px 8px;
+        }
+
+        .hero-bg {
+          background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('header-digital.jpg');
+          background-size: cover;
+          background-position: center;
+          background-attachment: fixed;
+        }
+
+        .about-bg {
+          background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('about-bg.jpg');
+          background-size: cover;
+          background-position: center;
+        }
+
+        .logo-container {
+          border-radius: 16px;
+          box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-item {
+          position: relative;
+          color: black;
+        }
+
+        .nav-item:after {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 2px;
+          background: #3B82F6;
+          bottom: -5px;
+          left: 0;
+          transition: width 0.3s ease;
+        }
+
+        .nav-item:hover:after {
+          width: 100%;
+        }
+
+        .feature-card {
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 12px;
+          backdrop-filter: blur(10px);
+          transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 25px -10px rgba(0, 0, 0, 0.3);
+          border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .mission-card, .vision-card {
+          transition: all 0.3s ease;
+        }
+        
+        .mission-card:hover, .vision-card:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 15px 25px -10px rgba(0, 0, 0, 0.3);
+          border-color: rgba(59, 130, 246, 0.4);
+        }
+
+        .blob-bg {
+          position: absolute;
+          width: 600px;
+          height: 600px;
+          background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0) 70%);
+          border-radius: 50%;
+          filter: blur(60px);
+          z-index: -1;
+        }
+
+        /* Mobile menu styles */
+        .mobile-menu {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: rgba(0, 0, 0, 0.95);
+          z-index: 50;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          transition: all 0.3s ease;
+        }
+
+        .mobile-menu.active {
+          display: flex;
+        }
+
+        .mobile-nav-item {
+          margin: 1rem 0;
+          font-size: 1.25rem;
+          position: relative;
+          color: white;
+        }
+
+        .mobile-nav-item:after {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 2px;
+          background: #3B82F6;
+          bottom: -5px;
+          left: 0;
+          transition: width 0.3s ease;
+        }
+
+        .mobile-nav-item:hover:after {
+          width: 100%;
+        }
+
+        .team-card {
+            transition: all 0.3s ease;
+        }
+            
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .timeline-item {
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: 15px;
+            top: 30px;
+            bottom: -10px;
+            width: 2px;
+            background: linear-gradient(to bottom, #3B82F6 0%, rgba(59, 130, 246, 0.1) 100%);
+        }
+
+        .timeline-item:last-child::before {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+          .about-section {
+            flex-direction: column;
+          }
+          
+          .about-image {
+            width: 100%;
+            margin-bottom: 1rem;
+          }
+          
+          .about-content {
+            width: 100%;
+          }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-900 text-white">
+    <!-- Top Bar -->
+    <div class="hidden sm:block top-bar-container container-full pt-4">
+        <div class="px-4 sm:px-6 py-3 flex flex-wrap md:flex-nowrap justify-between items-center border border-white/20 rounded-xl bg-white/5 backdrop-blur-md mobile-top-bar">
+            <!-- Contact Info -->
+            <div class="flex items-center gap-3 text-sm contact-info">
+                <div class="w-8 h-8 bg-blue-600/20 rounded-full flex items-center justify-center">
+                    <i class="fas fa-phone-alt text-blue-500"></i>
+                </div>
+                <p>
+                    Have any questions? Free:
+                    <span class="font-bold text-white ml-1">+971 50 590 1998</span>
+                </p>
+            </div>
+
+            <!-- Enhanced Join Us and Social Media Section -->
+            <div class="social-connect flex flex-col sm:flex-row w-full sm:w-auto items-center justify-center">
+                <!-- Join Us Button - More Attractive -->
+                <div class="join-us-container px-5 py-2 my-3 sm:my-0 sm:mr-6 flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-blue-600/15 rounded-lg border border-blue-500/30">
+                    <span class="font-semibold text-blue-400">Join Us</span>
+                    <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path d="M17 7l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <span class="font-normal ml-1 text-white/80">to shape future</span>
+                </div>
+
+                <!-- Enhanced Social Icons with Phone Icon -->
+                <div class="flex items-center gap-4 social-icons">
+                    <a aria-label="Facebook" class="w-8 h-8 bg-white/10 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all duration-300 social-icon" href="#">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a aria-label="Instagram" class="w-8 h-8 bg-white/10 hover:bg-pink-500 rounded-full flex items-center justify-center transition-all duration-300 social-icon" href="#">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a aria-label="LinkedIn" class="w-8 h-8 bg-white/10 hover:bg-blue-700 rounded-full flex items-center justify-center transition-all duration-300 social-icon" href="#">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a aria-label="Dribbble" class="w-8 h-8 bg-white/10 hover:bg-pink-400 rounded-full flex items-center justify-center transition-all duration-300 social-icon" href="#">
+                        <i class="fab fa-dribbble"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logo Container -->
+    <div class="container-full pt-4 sm:pt-6">
+        <div class="w-full bg-white logo-container p-3 sm:p-4 flex justify-between items-center mb-4 sm:mb-6">
+            <div class="flex items-center gap-2 sm:gap-3">
+                <img src="bg.png" alt="Logo" class="h-9 sm:h-12 w-auto" />
+                <div class="h-8 w-px bg-gray-300 hidden sm:block"></div>
+                <span class="text-gray-800 font-semibold text-sm sm:text-lg">Coastal Star</span>
+            </div>
+            <ul class="hidden md:flex gap-10 text-sm font-medium">
+                <li class="nav-item hover:text-black-500 cursor-pointer transition-all duration-300">
+                  <a href="index.html">Home</a>
+                </li>
+                <li class="nav-item hover:text-black-400 cursor-pointer transition-all duration-300 text-blue-500">
+                  <a href="services.html">Services</a>
+                </li>
+                <li class="nav-item hover:text-black-400 cursor-pointer transition-all duration-300">
+                  <a href="about.html">About</a>
+                </li>
+                <li class="nav-item hover:text-black-400 cursor-pointer transition-all duration-300">
+                  <a href="Activities.html">Activities</a>
+                </li>
+                <li class="nav-item hover:text-black-400 cursor-pointer transition-all duration-300">
+                  <a href="contact.html">Contact</a>
+                </li>
+              </ul>
+            <div class="flex items-center">
+                <div class="dot-grid h-12 w-12 rounded-lg hidden sm:block"></div>
+                <button id="menuButton" class="block md:hidden">
+                    <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+        <button id="closeMenu" class="absolute top-6 right-6">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+     <!-- Fixed Mobile Menu -->
+<div id="mobileMenu" class="mobile-menu">
+    <button id="closeMenu" class="absolute top-6 right-6">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+    </button>
+    <!-- Changed from hidden md:flex to flex flex-col -->
+    <ul class="flex flex-col items-center gap-6">
+        <li class="mobile-nav-item cursor-pointer transition-all duration-300">
+            <a href="index.html">Home</a>
+        </li>
+        <li class="mobile-nav-item cursor-pointer transition-all duration-300">
+            <a href="services.html">Services</a>
+        </li>
+        <li class="mobile-nav-item cursor-pointer transition-all duration-300">
+            <a href="about.html">About</a>
+        </li>
+        <li class="mobile-nav-item cursor-pointer transition-all duration-300">
+            <a href="Activities.html">Activities</a>
+        </li>
+        <li class="mobile-nav-item cursor-pointer transition-all duration-300">
+            <a href="contact.html">Contact</a>
+        </li>
+    </ul>
+    
+    <div class="mt-10 flex flex-col items-center">
+        <div class="join-us-container px-5 py-2 mb-6 flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-blue-600/15 rounded-lg border border-blue-500/30">
+            <span class="font-semibold text-blue-400">Join Us</span>
+            <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path d="M17 7l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <span class="font-normal ml-1 text-white/80">to shape future</span>
+        </div>
+        <div class="flex items-center gap-4 mb-6">
+            <a aria-label="Call Us" class="w-8 h-8 bg-blue-600/20 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all duration-300 social-icon" href="tel:+97150590998">
+                <i class="fas fa-phone-alt text-blue-400"></i>
+            </a>
+            <a aria-label="Facebook" class="w-8 h-8 bg-white/10 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all duration-300 social-icon" href="#">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a aria-label="Instagram" class="w-8 h-8 bg-white/10 hover:bg-pink-500 rounded-full flex items-center justify-center transition-all duration-300 social-icon" href="#">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a aria-label="LinkedIn" class="w-8 h-8 bg-white/10 hover:bg-blue-700 rounded-full flex items-center justify-center transition-all duration-300 social-icon" href="#">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a aria-label="Dribbble" class="w-8 h-8 bg-white/10 hover:bg-pink-400 rounded-full flex items-center justify-center transition-all duration-300 social-icon" href="#">
+                <i class="fab fa-dribbble"></i>
+            </a>
+        </div>
+        <button class="px-6 py-3 rounded-full gradient-button text-white font-semibold transition-all duration-300 flex items-center justify-center gap-2">
+            Get Started
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+        </button>
+    </div>
+</div>
+
+<!-- Additional CSS to ensure the mobile menu works properly -->
+<style>
+    .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.95);
+        z-index: 50;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-menu.active {
+        display: flex;
+    }
+
+    .mobile-nav-item {
+        margin: 1rem 0;
+        font-size: 1.25rem;
+        position: relative;
+        color: white;
+    }
+
+    .mobile-nav-item:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background: #3B82F6;
+        bottom: -5px;
+        left: 0;
+        transition: width 0.3s ease;
+    }
+
+    .mobile-nav-item:hover:after {
+        width: 100%;
+    }
+
+    .mobile-nav-item a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .mobile-nav-item a:hover {
+        color: #3B82F6;
+    }
+</style>
+
+<!-- JavaScript to handle the mobile menu toggle -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuButton = document.getElementById('menuButton');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuButton.addEventListener('click', function() {
+            mobileMenu.classList.add('active');
+        });
+        
+        closeMenu.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+        });
+    });
+</script>
+        <div class="mt-10 flex flex-col items-center">
+            <div class="join-us-container px-5 py-2 mb-6 flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-blue-600/15 rounded-lg border border-blue-500/30">
+                <span class="font-semibold text-blue-400">Join Us</span>
+                <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24">
+                    <path d="M17 7l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <span class="font-normal ml-1 text-white/80">to shape future</span>
+            </div>
+            <div class="flex items-center gap-4 mb-6">
+                <a aria-label="Call Us" class="w-8 h-8 bg-blue-600/20 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all duration-300 social-icon" href="tel:+97150590998">
+                    <i class="fas fa-phone-alt text-blue-400"></i>
+                </a>
+                <a aria-label="Facebook" class="w-8 h-8 bg-white/10 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all duration-300 social-icon" href="#">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a aria-label="Instagram" class="w-8 h-8 bg-white/10 hover:bg-pink-500 rounded-full flex items-center justify-center transition-all duration-300 social-icon" href="#">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a aria-label="LinkedIn" class="w-8 h-8 bg-white/10 hover:bg-blue-700 rounded-full flex items-center justify-center transition-all duration-300 social-icon" href="#">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a aria-label="Dribbble" class="w-8 h-8 bg-white/10 hover:bg-pink-400 rounded-full flex items-center justify-center transition-all duration-300 social-icon" href="#">
+                    <i class="fab fa-dribbble"></i>
+                </a>
+            </div>
+            <button class="px-6 py-3 rounded-full gradient-button text-white font-semibold transition-all duration-300 flex items-center justify-center gap-2">
+                Get Started
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="about-bg py-20 relative">
+        <div class="container-full">
+            <div class="max-w-xl mx-auto text-center">
+                <div class="inline-block px-4 py-1 bg-white/10 rounded-full text-blue-400 font-medium text-xs sm:text-sm mb-3">
+                    Discover Our Story
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-bold text-white mb-4 blue-glow">About Us</h1>
+                <p class="text-gray-300 mb-8 text-sm sm:text-base">
+                    Learn about Coastal Star's journey, our values, and our commitment to excellence
+                </p>
+                <div class="flex justify-center">
+                    <a href="#company-overview" class="px-6 py-3 rounded-full gradient-button text-white font-semibold transition-all duration-300 flex items-center justify-center gap-2 mx-auto">
+                        Explore More
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Overview Section -->
+    <section id="company-overview" class="py-12 bg-gradient-to-b from-black/80 to-black/95">
+        <div class="container-full">
+            <div class="max-w-5xl mx-auto">
+                <!-- Section Header -->
+                <div class="text-center mb-8">
+                    <div class="inline-block px-4 py-1 bg-white/10 rounded-full text-blue-400 font-medium text-xs mb-2">
+                        Who We Are
+                    </div>
+                    <h2 class="text-2xl font-bold text-white blue-glow mb-3">About Coastal Star</h2>
+                </div>
+
+                <!-- Main Content -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center mb-8">
+                    <!-- Left Column - Image -->
+                    <div class="relative">
+                        <div class="rounded-xl overflow-hidden shadow-lg border border-white/10">
+                            <img src="medium-shot-business-team-work.jpg" alt="Coastal Star Team" class="w-full h-auto" />
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Text Content -->
+                    <div class="text-white">
+                        <p class="mb-4 text-sm leading-relaxed">
+                            Coastal Star is a reputed manpower supply company based in Dubai, UAE, offering workforce and subcontracting solutions across sectors like civil, construction, mechanical, electrical, logistics, and hospitality. With over 500 trained professionals, we deliver high-quality labor across civil and MEP trades, serving leading developers and contractors.
+                        </p>
+                        
+                        <div class="mb-4">
+                            <h3 class="text-lg font-semibold mb-2 flex items-center">
+                                <span class="w-6 h-6 bg-blue-500/20 rounded-full flex items-center justify-center mr-2">
+                                    <i class="fas fa-tools text-blue-400 text-xs"></i>
+                                </span>
+                                Our Services
+                            </h3>
+                            <p class="text-gray-300 text-sm pl-8">
+                                We specialize in skilled manpower supply, interior fit-out, subcontracting services, private recruitment, and temporary staffing. Our Interiors Division provides turnkey solutions for ceiling partitions, gypsum works, tiling, painting, joinery, and more.
+                            </p>
+                        </div>
+
+                        <p class="text-sm text-gray-300">
+                            Fully licensed under the Dubai Government, we ensure complete legal compliance while connecting the right talent with the right opportunities to support the region's growth.
+                        </p>
+
+                        <!-- CTA Button -->
+                        <div class="mt-4">
+                            <a href="#contact" class="px-5 py-2 rounded-full gradient-button text-white font-medium text-sm transition-all duration-300 inline-flex items-center gap-2">
+                                Contact Us
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Core Values in Compact Row -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <!-- Value 1 -->
+                    <div class="feature-card p-4 text-center">
+                        <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-shield-alt text-blue-400 text-sm"></i>
+                        </div>
+                        <h4 class="text-base font-semibold mb-1">Safety First</h4>
+                        <p class="text-xs text-gray-300">
+                            We prioritize safety and wellbeing.
+                        </p>
+                    </div>
+
+                    <!-- Value 2 -->
+                    <div class="feature-card p-4 text-center">
+                        <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-award text-blue-400 text-sm"></i>
+                        </div>
+                        <h4 class="text-base font-semibold mb-1">Excellence</h4>
+                        <p class="text-xs text-gray-300">
+                            Exceptional quality in every project.
+                        </p>
+                    </div>
+
+                    <!-- Value 3 -->
+                    <div class="feature-card p-4 text-center">
+                        <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-handshake text-blue-400 text-sm"></i>
+                        </div>
+                        <h4 class="text-base font-semibold mb-1">Integrity</h4>
+                        <p class="text-xs text-gray-300">
+                            Highest standards of ethical conduct.
+                        </p>
+                    </div>
+
+                    <!-- Value 4 -->
+                    <div class="feature-card p-4 text-center">
+                        <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-users-cog text-blue-400 text-sm"></i>
+                        </div>
+                        <h4 class="text-base font-semibold mb-1">Reliability</h4>
+                        <p class="text-xs text-gray-300">
+                            Committed to delivering promises.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision and Mission Section -->
+    <section class="py-12 bg-gradient-to-r from-black to-slate-900">
+        <div class="container-full">
+            <div class="max-w-5xl mx-auto">
+                <!-- Section Header -->
+                <div class="text-center mb-10">
+                    <div class="inline-block px-4 py-1 bg-white/10 rounded-full text-blue-400 font-medium text-xs mb-2">
+                        Our Purpose
+                    </div>
+                    <h2 class="text-2xl font-bold text-white blue-glow mb-3">Vision & Mission</h2>
+                    <p class="text-gray-300 text-sm max-w-xl mx-auto">
+                        Driving excellence in workforce solutions across the UAE
+                    </p>
+                </div>
+
+                <!-- Vision & Mission Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <!-- Mission Card -->
+                    <div class="mission-card p-6 rounded-xl border border-white/10 bg-gradient-to-br from-blue-900/20 to-blue-800/10 backdrop-blur-sm">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-bullseye text-blue-400"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white">Our Mission</h3>
+                        </div>
+                        
+                        <div class="pl-16">
+                            <p class="text-sm text-gray-300 mb-3 leading-relaxed">
+                                Our mission is to connect skilled, dependable, and experienced professionals with top-tier companies across the UAE. Coastal Star is committed to providing quality manpower, recruitment, temporary staffing, and subcontracting services that fulfill the unique needs of every client.
+                            </p>
+                            
+                            <p class="text-sm text-gray-300 mb-3 leading-relaxed">
+                                We strive to ensure complete satisfaction for both employers and employees by maintaining the highest standards of professionalism, integrity, and service excellence.
+                            </p>
+                            
+                            <p class="text-sm text-gray-300 leading-relaxed">
+                                As a trusted manpower partner in Dubai, we aim to deliver consistent value and build long-term, result-oriented relationships.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Vision Card -->
+                    <div class="vision-card p-6 rounded-xl border border-white/10 bg-gradient-to-br from-blue-900/20 to-blue-800/10 backdrop-blur-sm">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-binoculars text-blue-400"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white">Our Vision</h3>
+                        </div>
+                        
+                        <div class="pl-16">
+                            <p class="text-sm text-gray-300 mb-3 leading-relaxed">
+                                Our vision is to become a leading manpower and subcontracting service provider in Dubai and the UAE, offering reliable workforce solutions and creating meaningful career opportunities.
+                            </p>
+                            
+                            <p class="text-sm text-gray-300 mb-3 leading-relaxed">
+                                We are dedicated to supporting the industrial growth of the UAE by supplying top-quality manpower in civil, construction, mechanical, electrical, plumbing, MEP, logistics, hospitality, and more.
+                            </p>
+                            
+                            <p class="text-sm text-gray-300 leading-relaxed">
+                                At Coastal Star, we aim not only for business growth but also to contribute to the social and economic development of the nation while ensuring full compliance with the rules and regulations set by the Government of Dubai.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bottom Banner -->
+                <div class="p-5 rounded-xl border border-blue-500/30 bg-blue-900/10 backdrop-blur-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center mr-3">
+                            <i class="fas fa-handshake text-blue-400"></i>
+                        </div>
+                        <p class="text-sm text-white">
+                            Ready to partner with Dubai's trusted workforce solution provider?
+                        </p>
+                    </div>
+                    <a href="#contact" class="px-5 py-2 rounded-full gradient-button text-white font-medium text-sm transition-all duration-300 inline-flex items-center gap-2 whitespace-nowrap">
+                        Get in Touch
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company History Section -->
+    <section class="py-16 bg-gradient-to-b from-slate-900 to-slate-950 relative">
+        <div class="blob-bg top-1/2 left-1/4"></div>
+        
+        <div class="container-full relative z-10">
+            <div class="max-w-6xl mx-auto">
+                <!-- Section Header -->
+                <div class="text-center mb-12">
+                    <div class="inline-block px-4 py-1 bg-white/10 rounded-full text-blue-400 font-medium text-xs sm:text-sm mb-2">
+                        Our Journey
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Company History</h2>
+                    <p class="text-gray-300 max-w-2xl mx-auto">
+                        From our humble beginnings to becoming one of Dubai's trusted workforce solution providers
+                    </p>
+                </div>
+
+                <!-- Timeline -->
+                <div class="max-w-3xl mx-auto mb-16">
+                    <!-- Event 1 -->
+                    <div class="timeline-item flex gap-5 mb-10">
+                        <div class="flex-shrink-0">
+                            <div class="w-10 h-10 rounded-full bg-blue-900 border-4 border-slate-800 flex items-center justify-center">
+                                <span class="text-xs font-medium text-white">2010</span>
+                            </div>
+                        </div>
+                        <div class="bg-slate-800/30 border border-white/10 rounded-xl p-5">
+                            <h3 class="text-lg font-semibold text-white mb-2">Foundation</h3>
+                            <p class="text-sm text-gray-300">
+                                Coastal Star was established with a vision to provide quality manpower solutions to the growing construction sector in Dubai, starting with a team of just 25 professionals.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Event 2 -->
+                    <div class="timeline-item flex gap-5 mb-10">
+                        <div class="flex-shrink-0">
+                            <div class="w-10 h-10 rounded-full bg-blue-900 border-4 border-slate-800 flex items-center justify-center">
+                                <span class="text-xs font-medium text-white">2014</span>
+                            </div>
+                        </div>
+                        <div class="bg-slate-800/30 border border-white/10 rounded-xl p-5">
+                            <h3 class="text-lg font-semibold text-white mb-2">Expansion</h3>
+                            <p class="text-sm text-gray-300">
+                                Expanded our services to include specialized trades and grew our workforce to over 200 professionals, serving major projects across Dubai.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Event 3 -->
+                    <div class="timeline-item flex gap-5 mb-10">
+                        <div class="flex-shrink-0">
+                            <div class="w-10 h-10 rounded-full bg-blue-900 border-4 border-slate-800 flex items-center justify-center">
+                                <span class="text-xs font-medium text-white">2018</span>
+                            </div>
+                        </div>
+                        <div class="bg-slate-800/30 border border-white/10 rounded-xl p-5">
+                            <h3 class="text-lg font-semibold text-white mb-2">Diversification</h3>
+                            <p class="text-sm text-gray-300">
+                                Launched our Interiors Division to provide comprehensive fit-out solutions and added recruitment and temporary staffing services to our portfolio.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Event 4 -->
+                    <div class="timeline-item flex gap-5">
+                        <div class="flex-shrink-0">
+                            <div class="w-10 h-10 rounded-full bg-blue-900 border-4 border-slate-800 flex items-center justify-center">
+                                <span class="text-xs font-medium text-white">2023</span>
+                            </div>
+                        </div>
+                        <div class="bg-slate-800/30 border border-white/10 rounded-xl p-5">
+                            <h3 class="text-lg font-semibold text-white mb-2">Present Day</h3>
+                            <p class="text-sm text-gray-300">
+                                Today, Coastal Star stands as a trusted partner with over 500 skilled professionals, providing comprehensive workforce solutions to leading companies across the UAE.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    <!-- Stat 1 -->
+                    <div class="bg-slate-800/30 border border-white/10 rounded-xl p-6 text-center">
+                        <div class="text-3xl sm:text-4xl font-bold text-blue-400 mb-2">500+</div>
+                        <p class="text-white font-medium">Skilled Professionals</p>
+                    </div>
+                    
+                    <!-- Stat 2 -->
+                    <div class="bg-slate-800/30 border border-white/10 rounded-xl p-6 text-center">
+                        <div class="text-3xl sm:text-4xl font-bold text-blue-400 mb-2">15+</div>
+                        <p class="text-white font-medium">Years Experience</p>
+                    </div>
+                    
+                    <!-- Stat 3 -->
+                    <div class="bg-slate-800/30 border border-white/10 rounded-xl p-6 text-center">
+                        <div class="text-3xl sm:text-4xl font-bold text-blue-400 mb-2">170+</div>
+                        <p class="text-white font-medium">Clients Served</p>
+                    </div>
+                    
+                    <!-- Stat 4 -->
+                    <div class="bg-slate-800/30 border border-white/10 rounded-xl p-6 text-center">
+                        <div class="text-3xl sm:text-4xl font-bold text-blue-400 mb-2">300+</div>
+                        <p class="text-white font-medium">Projects Completed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-16 bg-gradient-to-r from-slate-900 to-black relative">
+        <div class="blob-bg bottom-0 right-1/4"></div>
+        
+        <div class="container-full relative z-10">
+            <div class="max-w-6xl mx-auto">
+                <!-- Section Header -->
+                <div class="text-center mb-12">
+                    <div class="inline-block px-4 py-1 bg-white/10 rounded-full text-blue-400 font-medium text-xs sm:text-sm mb-2">
+                        Our People
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Leadership Team</h2>
+                    <p class="text-gray-300 max-w-2xl mx-auto">
+                        Meet the experienced professionals guiding Coastal Star's operations and growth
+                    </p>
+                </div>
+
+                <!-- Team Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Team Member 1 -->
+                    <div class="team-card bg-slate-800/30 border border-white/10 rounded-xl overflow-hidden">
+                        <div class="h-64 bg-slate-700 flex items-center justify-center">
+                            <svg class="w-24 h-24 text-slate-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-semibold text-white mb-1">Ahmed Al-Mansouri</h3>
+                            <p class="text-blue-400 text-sm mb-3">Founder & CEO</p>
+                            <p class="text-gray-300 text-sm mb-4">
+                                With over 20 years of experience in the construction and manpower industry, Ahmed founded Coastal Star with a vision to bridge the gap between quality workforce and project success.
+                            </p>
+                            <div class="flex gap-3">
+                                <a href="#" class="w-8 h-8 bg-white/10 hover:bg-blue-700 rounded-full flex items-center justify-center transition-all duration-300">
+                                    <i class="fab fa-linkedin-in text-sm"></i>
+                                </a>
+                                <a href="#" class="w-8 h-8 bg-white/10 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all duration-300">
+                                    <i class="fab fa-twitter text-sm"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Team Member 2 -->
+                    <div class="team-card bg-slate-800/30 border border-white/10 rounded-xl overflow-hidden">
+                        <div class="h-64 bg-slate-700 flex items-center justify-center">
+                            <svg class="w-24 h-24 text-slate-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-semibold text-white mb-1">Fatima Al-Hashimi</h3>
+                            <p class="text-blue-400 text-sm mb-3">Operations Director</p>
+                            <p class="text-gray-300 text-sm mb-4">
+                                Fatima brings 15 years of operational excellence to Coastal Star, overseeing project execution and ensuring the highest standards across all our service offerings.
+                            </p>
+                            <div class="flex gap-3">
+                                <a href="#" class="w-8 h-8 bg-white/10 hover:bg-blue-700 rounded-full flex items-center justify-center transition-all duration-300">
+                                    <i class="fab fa-linkedin-in text-sm"></i>
+                                </a>
+                                <a href="#" class="w-8 h-8 bg-white/10 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all duration-300">
+                                    <i class="fab fa-twitter text-sm"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Team Member 3 -->
+                    <div class="team-card bg-slate-800/30 border border-white/10 rounded-xl overflow-hidden">
+                        <div class="h-64 bg-slate-700 flex items-center justify-center">
+                            <svg class="w-24 h-24 text-slate-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-semibold text-white mb-1">Rajesh Kumar</h3>
+                            <p class="text-blue-400 text-sm mb-3">Technical Director</p>
+                            <p class="text-gray-300 text-sm mb-4">
+                                As our Technical Director, Rajesh leads our specialized trades and ensures all our professionals meet the rigorous quality and safety standards Coastal Star is known for.
+                            </p>
+                            <div class="flex gap-3">
+                                <a href="#" class="w-8 h-8 bg-white/10 hover:bg-blue-700 rounded-full flex items-center justify-center transition-all duration-300">
+                                    <i class="fab fa-linkedin-in text-sm"></i>
+                                </a>
+                                <a href="#" class="w-8 h-8 bg-white/10 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all duration-300">
+                                    <i class="fab fa-twitter text-sm"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="py-16 bg-gradient-to-b from-slate-900 to-slate-950">
+        <div class="container-full">
+            <div class="max-w-6xl mx-auto">
+                <!-- Section Header -->
+                <div class="text-center mb-12">
+                    <div class="inline-block px-4 py-1 bg-white/10 rounded-full text-blue-400 font-medium text-xs sm:text-sm mb-2">
+                        Our Standards
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Certifications & Compliance</h2>
+                    <p class="text-gray-300 max-w-2xl mx-auto">
+                        Coastal Star adheres to the highest industry standards and regulations
+                    </p>
+                </div>
+
+                <!-- Certifications Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- Certification 1 -->
+                    <div class="bg-slate-800/30 border border-white/10 rounded-xl p-6 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
+                            <i class="fas fa-certificate text-blue-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">ISO 9001:2015</h3>
+                        <p class="text-xs text-gray-300">
+                            Quality Management System
+                        </p>
+                    </div>
+                    
+                    <!-- Certification 2 -->
+                    <div class="bg-slate-800/30 border border-white/10 rounded-xl p-6 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
+                            <i class="fas fa-shield-alt text-blue-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">ISO 45001:2018</h3>
+                        <p class="text-xs text-gray-300">
+                            Occupational Health & Safety
+                        </p>
+                    </div>
+                    
+                    <!-- Certification 3 -->
+                    <div class="bg-slate-800/30 border border-white/10 rounded-xl p-6 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
+                            <i class="fas fa-globe text-blue-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">ISO 14001:2015</h3>
+                        <p class="text-xs text-gray-300">
+                            Environmental Management
+                        </p>
+                    </div>
+                    
+                    <!-- Certification 4 -->
+                    <div class="bg-slate-800/30 border border-white/10 rounded-xl p-6 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
+                            <i class="fas fa-award text-blue-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Dubai Municipality</h3>
+                        <p class="text-xs text-gray-300">
+                            Licensed & Approved Contractor
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-blue-900/30 to-slate-900/30 border-y border-white/10">
+        <div class="container-full">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4 blue-glow">Join Our Journey</h2>
+                <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Whether you're looking for workforce solutions or career opportunities, Coastal Star is ready to support your growth and success.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="tel:+97150590998" class="px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white font-semibold transition-all duration-300 flex items-center justify-center gap-2 hover:bg-white/20">
+                        <i class="fas fa-phone-alt text-blue-400"></i>
+                        +971 50 590 1998
+                    </a>
+                    <a href="#contact" class="px-6 py-3 rounded-full gradient-button text-white font-semibold transition-all duration-300 flex items-center justify-center gap-2">
+                        Contact Us
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/60 backdrop-blur-sm border-t border-white/10 py-6">
+        <div class="container-full">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <img src="bg.png" alt="Logo" class="h-8 w-auto" />
+                        <span class="text-white font-semibold text-lg">Coastal Star</span>
+                    </div>
+                    <p class="text-sm text-gray-400 mb-4">
+                        Providing top-quality workforce solutions and turnkey project management across Dubai and beyond.
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <a aria-label="Facebook" class="w-8 h-8 bg-white/10 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all duration-300 social-icon" href="#">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a aria-label="Instagram" class="w-8 h-8 bg-white/10 hover:bg-pink-500 rounded-full flex items-center justify-center transition-all duration-300 social-icon" href="#">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a aria-label="LinkedIn" class="w-8 h-8 bg-white/10 hover:bg-blue-700 rounded-full flex items-center justify-center transition-all duration-300 social-icon" href="#">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-span-1">
+                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Activities</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="col-span-1">
+                    <h4 class="text-white font-semibold mb-4">Our Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Skilled Manpower</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Interior Fit-Out</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Subcontracting</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Private Recruitment</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Temporary Staffing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-span-1">
+                    <h4 class="text-white font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start gap-3">
+                            <div class="w-5 h-5 bg-blue-500/20 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-blue-400 text-xs"></i>
+                            </div>
+                            <span class="text-gray-400">Office 304, Al Qudrah Building, Sheikh Zayed Road, Dubai, UAE</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-5 h-5 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone-alt text-blue-400 text-xs"></i>
+                            </div>
+                            <span class="text-gray-400">+971 50 590 1998</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-5 h-5 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-blue-400 text-xs"></i>
+                            </div>
+                            <span class="text-gray-400">info@coastalstar.ae</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-white/10 mt-8 pt-6 text-center">
+                <p class="text-sm text-gray-400">
+                  © 2025 <a href="https://portfolix.tech" target="_blank" class="underline text-blue-400 hover:text-blue-500 transition-all">portfolix.tech</a> All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.getElementById('menuButton');
+            const closeMenu = document.getElementById('closeMenu');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            menuButton.addEventListener('click', function() {
+                mobileMenu.classList.add('active');
+            });
+            
+            closeMenu.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if(mobileMenu.classList.contains('active')) {
+                            mobileMenu.classList.remove('active');
+                        }
+                    }
+                });
+            });
+
+            // Animation for elements on scroll
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.feature-card, .mission-card, .vision-card, .timeline-item, .team-card, .bg-slate-800\\/30');
+                
+                elements.forEach((element) => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight * 0.85;
+                    
+                    if (elementPosition < screenPosition) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+
+            // Set initial state for animations
+            const elementsToAnimate = document.querySelectorAll('.feature-card, .mission-card, .vision-card, .timeline-item, .team-card, .bg-slate-800\\/30');
+            elementsToAnimate.forEach((element) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+
+            // Listen for scroll events
+            window.addEventListener('scroll', animateOnScroll);
+            
+            // Trigger once on load
+            setTimeout(animateOnScroll, 500);
+        });
+    </script>
+</body>
+
+</html>
